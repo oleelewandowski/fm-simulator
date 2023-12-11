@@ -79,7 +79,7 @@ const ModulationForm = () => {
     setLoading(true);
     try {
       const response = await axios.post(
-        'http://127.0.0.1:8000/signal_processor/simulate_fm/',
+        `${process.env.NEXT_PUBLIC_API_URL}/signal_processor/simulate_fm/`,
         parsedValues,
         {
           headers: {
