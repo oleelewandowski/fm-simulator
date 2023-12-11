@@ -16,6 +16,7 @@ const Graph: React.FC<GraphsInterface> = ({
   useEffect(() => {
     if (audioRef.current) {
       audioRef.current.volume = 0.02;
+      audioRef.current.load();
     }
   }, [signalAudio]);
 
