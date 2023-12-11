@@ -19,11 +19,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Szybkie ustawienia rozwojowe - nieodpowiednie dla produkcji
 # Zobacz https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
-# OSTRZEŻENIE O BEZPIECZEŃSTWIE: zachowaj klucz tajny używany w produkcji w tajemnicy!
-SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
+SECRET_KEY = 'django-insecure-atfh-g9+z%lnv5r-l-)2m_94jfbf#)8#n!t&om#l6ky1(o7^lg'
 
 # OSTRZEŻENIE O BEZPIECZEŃSTWIE: nie uruchamiaj z włączonym debugowaniem w produkcji!
-DEBUG = False
+DEBUG = os.getenv('DJANGO_DEBUG', 'False') == 'True'
 
 ALLOWED_HOSTS = ["*"]
 
@@ -57,6 +56,7 @@ MIDDLEWARE = [
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
+    "https://fm-simulator-oleelewandowski.vercel.app"
 ]
 
 CORS_ALLOW_HEADERS = list(default_headers) + [
@@ -129,13 +129,10 @@ USE_TZ = True
 # Pliki statyczne (CSS, JavaScript, Obrazy)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = 'static/'
-
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
-]
+STATIC_URL='static/'
+STATIC_ROOT =os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Domyślny typ głównego klucza
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
