@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/4.2/topics/settings/
 Pełna lista ustawień i ich wartości znajduje się na
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
-
+import os
 from pathlib import Path
 from corsheaders.defaults import default_headers
 
@@ -21,12 +21,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Zobacz https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # OSTRZEŻENIE O BEZPIECZEŃSTWIE: zachowaj klucz tajny używany w produkcji w tajemnicy!
-SECRET_KEY = 'django-insecure-atfh-g9+z%lnv5r-l-)2m_94jfbf#)8#n!t&om#l6ky1(o7^lg'
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
 
 # OSTRZEŻENIE O BEZPIECZEŃSTWIE: nie uruchamiaj z włączonym debugowaniem w produkcji!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '.vercel.app',]
 
 
 # Definicja aplikacji
