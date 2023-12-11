@@ -16,3 +16,5 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'simulator_backend.settings')
 
 # Tworzenie i konfiguracja aplikacji WSGI
 application = get_wsgi_application()
+
+app = application
