@@ -25,7 +25,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
 # OSTRZEŻENIE O BEZPIECZEŃSTWIE: nie uruchamiaj z włączonym debugowaniem w produkcji!
 DEBUG = False
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', '.vercel.app',]
+ALLOWED_HOSTS = ["*"]
 
 
 # Definicja aplikacji
