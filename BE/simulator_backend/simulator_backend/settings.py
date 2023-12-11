@@ -16,7 +16,6 @@ from corsheaders.defaults import default_headers
 # Budowanie ścieżek wewnątrz projektu, na przykład: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
 # Szybkie ustawienia rozwojowe - nieodpowiednie dla produkcji
 # Zobacz https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
@@ -132,7 +131,11 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-STATICFILES_STORAGE='whitenoise.storage.CompressedStaticFilesStorage'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+]
 
 # Domyślny typ głównego klucza
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
