@@ -33,7 +33,14 @@ def create_plot_and_audio(signal, sample_rate, title, num_samples=1000):
     image_base64 = base64.b64encode(image_png).decode('utf-8')
     
     # Generowanie zawartości pliku WAV
-    wav_output = BytesIO()
+    global wav_output
+    if 'wav_output' not in globals():
+        wav_output = BytesIO()
+        
+    # Resetowanie bufora przed ponownym użyciem
+    wav_output.seek(0)
+    wav_output.truncate()
+        
     scaled_signal = np.int16(signal / np.max(np.abs(signal)) * 32767)
     write(wav_output, sample_rate, scaled_signal)
     wav_output.seek(0)
