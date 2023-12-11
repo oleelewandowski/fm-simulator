@@ -45,7 +45,7 @@ const Graph: React.FC<GraphsInterface> = ({
           </div>
         ) : (
           <div className='w-[70%] h-auto p-4'>
-            Kliknij "Start", aby rozpocząć symulację
+            Kliknij &quot;Start&quot;, aby rozpocząć symulację
           </div>
         )}
       </div>
